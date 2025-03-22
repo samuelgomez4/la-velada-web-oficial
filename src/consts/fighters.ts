@@ -1,4 +1,6 @@
-export const FIGHTERS = [
+import { type Fighter } from '../types/fighter';
+
+export const FIGHTERS: Fighter[] = [
   {
     id: 'peereira',
     name: 'Peereira'

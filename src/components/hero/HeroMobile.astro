@@ -1,0 +1,30 @@
+---
+import FighterContainer from "./FighterContainer.astro";
+import Landing from "./Landing.astro";
+import BoxerCard from "./BoxerCard.astro";
+import type { Fighter } from "@/types/fighter";
+
+interface Props {
+  leftRow: Fighter[];
+  rightRow: Fighter[];
+  leftBottom: Fighter[];
+  rightBottom: Fighter[];
+}
+
+const { leftRow, rightRow, leftBottom, rightBottom } = Astro.props;
+---
+
+<div class="flex justify-between py-28 w-full">
+    <div class="flex flex-col gap-4">
+        {[...leftRow, ...leftBottom].reverse().map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+    </div>
+    <div class="flex-shrink w-full px-8 relative">
+        <Landing />
+        <div class="absolute inset-0 px-8">
+            <FighterContainer />
+        </div>
+      </div>
+    <div class="flex flex-col gap-4">
+        {[...rightBottom, ...rightRow].map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+    </div>
+  </div>

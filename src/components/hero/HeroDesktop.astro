@@ -1,9 +1,24 @@
-<div class="relative flex flex-col items-center p-8 w-full text-center">
+---
+import FighterContainer from "./FighterContainer.astro";
+import Landing from "./Landing.astro";
+import BoxerCard from "./BoxerCard.astro";
+import type { Fighter } from "@/types/fighter";
+
+interface Props {
+  leftRow: Fighter[];
+  rightRow: Fighter[];
+  secondRow: Fighter[];
+}
+
+const { leftRow, rightRow, secondRow } = Astro.props;
+---
+
+<div class="relative flex flex-col items-center p-8 w-full h-full">
     <div class="absolute inset-0 w-full py-32">
       <Landing />
     </div>
     <div class="absolute inset-0">
-      <FighterContainer FIGHTERS={FIGHTERS} />
+      <FighterContainer />
     </div>
     <div
       class="relative flex flex-col items-center justify-end p-8 h-full w-full max-w-6xl gap-4"

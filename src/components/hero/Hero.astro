@@ -3,6 +3,8 @@ import { FIGHTERS } from "@/consts/fighters"
 import BoxerCard from "./BoxerCard.astro"
 import Landing from "./Landing.astro"
 import FighterContainer from "./FighterContainer.astro"
+import HeroDesktop from "./HeroDesktop.astro" // Import HeroDesktop
+import HeroMobile from "./HeroMobile.astro"
 
 const firstRow = FIGHTERS.slice(0, 6)
 const leftRow = firstRow.slice(0, 3)
@@ -17,8 +19,13 @@ const rightBottom = secondRow.slice(4)
     class="bg-[url('/images/hero.png')] bg-cover bg-center w-full mask-fade-bottom absolute inset-0"
   >
   </div>
+  <div class="hidden sm:block w-full">
+    <HeroDesktop {leftRow} {rightRow} {secondRow} />
+  </div>
+  <div class="block sm:hidden w-full">
+    <HeroMobile {leftRow} {rightRow} {leftBottom} {rightBottom} />
+  </div>
 
-  
 </section>
 
 <style>

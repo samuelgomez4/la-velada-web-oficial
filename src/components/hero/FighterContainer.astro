@@ -1,11 +1,5 @@
 ---
-import type { Fighter } from "@/types/fighter"
-
-interface Props {
-  FIGHTERS: Fighter[]
-}
-
-const { FIGHTERS } = Astro.props
+import { FIGHTERS } from "@/consts/fighters";
 ---
 <div
 id="fighter-container"
